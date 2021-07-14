@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/MassObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Camera2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/QuadTree.tscn" type="PackedScene" id=4]
+
+[node name="Galaxy" type="Node2D"]
+script = ExtResource( 1 )
+theta = 2.0
+areaSize = 200000
+spawnRandomness = 100000
+startingVel = 4.5
+massRange = Vector2( 18, 22 )
+numThreads = 5
+
+[node name="Camera2D" parent="." instance=ExtResource( 3 )]
+max_zoom = 500000.0
+zoom_factor = 20.0
+
+[node name="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 514.774, 299.813 )
+mass = 5.9736e+24
+can_move = false
+
+[node name="QuadTree" parent="." instance=ExtResource( 4 )]
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 500.0
+default_color = Color( 0.0588235, 0.341176, 0.101961, 1 )
